@@ -21,19 +21,16 @@ function RestMarker() {
   );
 }
 
-function PhotoPlaceholder({ caption }) {
+function Photo({ src }) {
   return (
     <figure className="my-12 print:my-6 print:break-inside-avoid">
-      <div 
-        className="w-full max-w-md mx-auto rounded-sm flex items-center justify-center h-64 print:h-48 print:border-gray-300"
-        style={{ background: 'rgba(201,162,39,0.05)', border: '1px solid rgba(201,162,39,0.2)' }}
-      >
-        <div className="text-center opacity-40">
-          <p className="text-3xl mb-2">◻</p>
-          <p className="text-xs uppercase tracking-widest">Foto</p>
-        </div>
+      <div className="w-full max-w-md mx-auto rounded-sm overflow-hidden">
+        <img 
+          src={src} 
+          alt="" 
+          className="w-full h-auto object-cover"
+        />
       </div>
-      {caption && <figcaption className="text-center text-sm opacity-50 mt-3 italic">{caption}</figcaption>}
     </figure>
   );
 }
@@ -46,7 +43,7 @@ function Memory({ children }) {
   );
 }
 
-export default function VoorVakeV4() {
+export default function VoorVake() {
   const [fontSize, setFontSize] = useState('large');
   const [scrollSpeed, setScrollSpeed] = useState('medium');
   const [isScrolling, setIsScrolling] = useState(false);
@@ -213,7 +210,8 @@ export default function VoorVakeV4() {
               </p>
             </div>
             
-            <PhotoPlaceholder caption="Vader en zoon, de vroege jaren" />
+            {/* Baby photo - the beginning */}
+            <Photo src="/photos/baby.jpg" />
 
             <div className="space-y-6 opacity-90">
               <p>
@@ -376,8 +374,6 @@ export default function VoorVakeV4() {
           </div>
         </section>
 
-        <PhotoPlaceholder caption="Onderweg ergens naartoe samen" />
-
         {/* ==================== MANTRA 4: INZICHT VISIE LANGE TERMIJN ==================== */}
         <section className="min-h-screen flex items-center px-6 py-20 print:min-h-0 print:py-12 print:break-before-page" style={{ background: 'rgba(0,0,0,0.3)' }}>
           <div className="max-w-xl mx-auto w-full">
@@ -508,7 +504,7 @@ export default function VoorVakeV4() {
           </div>
         </section>
 
-        {/* ==================== MANTRA 7: NIETS NEGATIEFS (MORE BREATHING ROOM) ==================== */}
+        {/* ==================== MANTRA 7: NIETS NEGATIEFS ==================== */}
         <section className="min-h-screen flex items-center px-6 py-20 print:min-h-0 print:py-12 print:break-before-page">
           <div className="max-w-xl mx-auto w-full">
             <p className="text-3xl md:text-4xl font-light leading-tight mb-6">
@@ -560,7 +556,7 @@ export default function VoorVakeV4() {
 
         <RestMarker />
 
-        {/* ==================== WAT IK ZAG - MEMORIES AS EVIDENCE ==================== */}
+        {/* ==================== WAT IK ZAG - MEMORIES ==================== */}
         <section className="py-20 px-6 print:py-12 print:break-before-page" style={{ background: 'rgba(201, 162, 39, 0.05)' }}>
           <div className="max-w-xl mx-auto">
             <p className="text-2xl md:text-3xl mb-6 text-center" style={{ color: goldColor, fontVariant: 'small-caps', letterSpacing: '0.1em' }}>
@@ -597,8 +593,6 @@ export default function VoorVakeV4() {
                 Je lette op wat ik nodig had, niet op wat jij begreep.
               </p>
             </Memory>
-
-            <PhotoPlaceholder caption="De Gameboy jaren" />
 
             <Memory>
               <p className="text-lg mb-4">
@@ -654,14 +648,12 @@ export default function VoorVakeV4() {
                 Je trok me erdoor toen ik mezelf er niet doorheen kon trekken.
               </p>
             </Memory>
-
-            <PhotoPlaceholder caption="Ergens in het middelbaar" />
           </div>
         </section>
 
         <RestMarker />
 
-        {/* ==================== THE FORTRESS - EXPANDED EMOTIONAL CLIMAX ==================== */}
+        {/* ==================== THE FORTRESS ==================== */}
         <section className="py-32 px-6 print:py-16 print:break-before-page" style={{ background: 'linear-gradient(180deg, rgba(201,162,39,0.08) 0%, rgba(201,162,39,0.03) 50%, rgba(201,162,39,0.08) 100%)' }}>
           <div className="max-w-2xl mx-auto">
             <p className="text-3xl md:text-5xl mb-16 text-center" style={{ color: goldColor, fontVariant: 'small-caps', letterSpacing: '0.15em' }}>
@@ -679,7 +671,8 @@ export default function VoorVakeV4() {
               </p>
             </div>
 
-            <PhotoPlaceholder caption="Het fort van buitenaf" />
+            {/* The contemplative photo - the fort from outside */}
+            <Photo src="/photos/contemplative.jpg" />
 
             <div className="space-y-8 opacity-90 text-lg">
               <p>
@@ -715,7 +708,7 @@ export default function VoorVakeV4() {
               </div>
             </div>
 
-            {/* THE THESIS - VISUALLY DISTINCT */}
+            {/* THE THESIS */}
             <div className="my-20 py-16 text-center">
               <p className="text-2xl md:text-4xl leading-relaxed" style={{ color: goldColor }}>
                 Het fort was niet koud.
@@ -728,7 +721,8 @@ export default function VoorVakeV4() {
               </p>
             </div>
 
-            <PhotoPlaceholder caption="Een onbewaakt moment" />
+            {/* Parents watching - unguarded moment */}
+            <Photo src="/photos/parents-watching.jpg" />
 
             <div className="text-center my-16">
               <p className="text-2xl italic opacity-80">
@@ -758,7 +752,7 @@ export default function VoorVakeV4() {
 
         <RestMarker />
 
-        {/* ==================== CARRYING FORWARD + CLOSING (MERGED) ==================== */}
+        {/* ==================== CARRYING FORWARD + CLOSING ==================== */}
         <section className="min-h-screen flex items-center px-6 py-20 print:min-h-0 print:py-16 print:break-before-page">
           <div className="max-w-xl mx-auto">
             <p className="text-3xl md:text-4xl mb-12" style={{ color: goldColor, fontVariant: 'small-caps', letterSpacing: '0.1em' }}>
@@ -783,7 +777,8 @@ export default function VoorVakeV4() {
               </p>
             </div>
 
-            <PhotoPlaceholder caption="Vincent en Defné, of het huis aan de Jagershoek" />
+            {/* Parents kiss - the warmth continues */}
+            <Photo src="/photos/parents-kiss.jpg" />
 
             <div className="space-y-6 opacity-90">
               <p className="text-lg" style={{ color: goldColor }}>
@@ -818,7 +813,8 @@ export default function VoorVakeV4() {
               <p className="text-xl opacity-80">Ik ben klaar om het door te geven.</p>
             </div>
 
-            <PhotoPlaceholder caption="Jullie samen, recent" />
+            {/* Father and son at wedding - the final photo */}
+            <Photo src="/photos/together.jpg" />
           </div>
         </section>
 

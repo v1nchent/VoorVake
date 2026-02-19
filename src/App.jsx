@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 const goldColor = '#c9a227';
 const fontSizes = { 
@@ -828,6 +829,7 @@ export default function VoorVake() {
 
         <div className="h-16 print:h-0"></div>
       </div>
+      <Analytics />
     </>
   );
 }
